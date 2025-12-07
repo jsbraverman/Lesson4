@@ -3,8 +3,20 @@ name: workflow overview
 
 on:
   workflow_dispatch:
-
+  push:
+    branches: main_branch
+    
 jobs:
+  my_selfhosted_job:
+    name: my self hosted job
+    runs-on: self-hosted
+    steps:
+    - name: step in a self-hosted runner
+      id: selfhostedId
+      shell: cmd
+      run: |
+        echo this is a multiline comment
+        echo and this has been executed from my self-hosted runner
   a_simple_job:
     name: My simple job name
     runs-on: ubuntu-latest
